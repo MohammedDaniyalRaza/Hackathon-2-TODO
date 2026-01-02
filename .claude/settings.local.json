@@ -17,7 +17,8 @@
       "Bash(python src/app.py complete 1)",
       "Bash(python src/app.py --help)",
       "Bash(python -m pytest tests/unit/ -v)",
-      "Bash(python src/app.py add \"Test todo for final verification\")"
+      "Bash(python src/app.py add \"Test todo for final verification\")",
+      "Bash(mkdir -p src/models src/services src/cli src/utils)"
     ]
   }
 }

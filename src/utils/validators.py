@@ -20,21 +20,25 @@ def validate_todo_title(title: str) -> bool:
     return True
 
 
-def validate_todo_id(todo_id: int) -> bool:
+def validate_todo_id(todo_id: str) -> bool:
     """
-    Validate that a todo ID is a positive integer.
+    Validate that a todo ID is a positive integer string.
 
     Args:
-        todo_id: The ID to validate
+        todo_id: The ID string to validate
 
     Returns:
         True if the ID is valid, False otherwise
     """
-    if not isinstance(todo_id, int):
+    if not todo_id:
         return False
-    if todo_id <= 0:
+    if not todo_id.strip():
         return False
-    return True
+    try:
+        id_int = int(todo_id.strip())
+        return id_int > 0
+    except ValueError:
+        return False
 
 
 def is_valid_status(status: str) -> bool:
@@ -47,4 +51,4 @@ def is_valid_status(status: str) -> bool:
     Returns:
         True if the status is valid, False otherwise
     """
-    return status in ["pending", "complete"]
+    return status.lower() in ["pending", "complete"]
