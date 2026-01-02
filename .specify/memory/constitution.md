@@ -1,55 +1,74 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report:
+Version change: N/A → 1.0.0
+Modified principles: N/A (new constitution)
+Added sections: All sections added based on user requirements
+Removed sections: N/A
+Templates requiring updates: ⚠ pending - .specify/templates/plan-template.md, .specify/templates/spec-template.md, .specify/templates/tasks-template.md
+Follow-up TODOs: None
+-->
+# Multi-Phase Todo Application Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### Simplicity First, Scalability Later
+Every phase starts simple and evolves progressively; Each phase must be production-minded and extensible; Clear evolution path required - no hacks that don't build on prior concepts.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### Clean Architecture and Separation of Concerns
+Modular code structure with clear boundaries between components; Type hints and docstrings required in all phases; Explicit state management with predictable behavior.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### Testability and Maintainability at Every Phase
+Unit tests required for core logic in Phase I; Integration tests for phases II-V; Test-first approach encouraged with clear testable components.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### Progressive Enhancement
+Each phase builds on prior concepts without breaking them; Backward compatibility of core todo concepts (task, status, priority, timestamps) maintained; No architectural shortcuts that compromise future phases.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### Developer Ergonomics
+Clear CLI UX and readable code in all phases; Consistent conventions across all phases; Good documentation for setup, usage, and design decisions.
 
-### [PRINCIPLE_6_NAME]
+## Phase-Specific Standards
 
+### Phase I (In-Memory Console App)
+- Pure Python console application with no external persistence
+- Clear command-based interface (add, list, update, delete, complete todos)
+- Modular code structure with type hints and docstrings
+- Unit tests for core logic
 
-[PRINCIPLE__DESCRIPTION]
+### Phase II (Full-Stack Web Application)
+- Backend: FastAPI with SQLModel
+- Frontend: Next.js
+- Database: Neon (PostgreSQL)
+- RESTful API with clear schema definitions
+- Client-server separation
+- Authentication-ready architecture
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+### Phase III (AI-Powered Todo Chatbot)
+- Conversational todo management (CRUD via chat)
+- Use OpenAI ChatKit, Agents SDK, and Official MCP SDK
+- Deterministic tool usage with no hidden side effects
+- Clear system vs user vs tool message boundaries
+- Safety-first prompt and agent design
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+### Phase IV (Local Kubernetes Deployment)
+- Containerized services using Docker
+- Local orchestration with Minikube
+- Helm charts for deployment
+- Declarative infrastructure
+- Observability basics (logs, health checks)
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+### Phase V (Advanced Cloud Deployment)
+- Event-driven components using Kafka
+- Service-to-service communication with Dapr
+- Deployment to DigitalOcean DOKS
+- Horizontal scalability and fault tolerance
+- Environment-based configuration (dev/staging/prod)
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+## Development Constraints
+
+Each phase must be independently runnable with no over-engineering in early phases; Security and secrets must never be hard-coded; Clear documentation required for setup, usage, and design decisions; Codebase must remain readable and navigable as complexity increases.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+All phases must follow the progressive enhancement principle with conceptual continuity preserved; Each phase must demonstrably extend functionality or scale; Code reviews must verify compliance with phase-specific standards; Architecture decisions that affect multiple phases require explicit documentation.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2026-01-02 | **Last Amended**: 2026-01-02

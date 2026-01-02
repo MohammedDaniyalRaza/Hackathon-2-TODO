@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git fetch --all --prune)",
+      "Bash(mkdir -p specs)",
+      "Bash(pwsh -Command \".specify/scripts/powershell/create-new-feature.ps1 -Json -Number 1 -ShortName ''console-todo-app'' -FeatureDescription ''Phase I: In-Memory Python Console Todo App\\\\n\\\\nTarget audience:\\\\n- Python developers learning spec-driven, agentic workflows\\\\n\\\\nFocus:\\\\n- Build a clean, in-memory CLI Todo application using Python\\\\n- Follow Spec → Plan → Tasks → Implement via Claude Code\\\\n\\\\nSuccess criteria:\\\\n- Implements all 5 basic features:\\\\n  - Add, View, Update, Delete, Mark Complete\\\\n- Runs fully in memory \\(no persistence\\)\\\\n- Clean, modular Python project structure\\\\n- Clear and usable CLI UX\\\\n\\\\nConstraints:\\\\n- Python 3.13+\\\\n- Console-only application\\\\n- In-memory data structures only\\\\n- Clean code with type hints and docstrings\\\\n- No manual coding \\(Claude Code only\\)\\\\n\\\\nNot building:\\\\n- File/database persistence\\\\n- Web or UI layers\\\\n- AI features or deployment setup''\")",
+      "Bash(pwsh -Command \".specify/scripts/powershell/setup-plan.ps1 -Json\")",
+      "Bash(pwsh -Command \".specify/scripts/powershell/check-prerequisites.ps1 -Json\")",
+      "Bash(mkdir -p history/prompts/1-console-todo-app)",
+      "Bash(pwsh -Command \".specify/scripts/powershell/check-prerequisites.ps1 -Json -RequireTasks -IncludeTasks\")",
+      "Bash(mkdir -p src/models src/services src/cli src/utils tests/unit tests/integration)",
+      "Bash(python src/app.py add \"Test todo for User Story 1\")",
+      "Bash(python src/app.py list)",
+      "Bash(python src/app.py add \"First todo for testing\")",
+      "Bash(python src/app.py update 1 \"Updated todo title\")",
+      "Bash(python src/app.py delete 1)",
+      "Bash(python src/app.py complete 1)"
+    ]
+  }
+}
