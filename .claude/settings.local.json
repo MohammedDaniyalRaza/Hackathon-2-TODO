@@ -14,7 +14,10 @@
       "Bash(python src/app.py add \"First todo for testing\")",
       "Bash(python src/app.py update 1 \"Updated todo title\")",
       "Bash(python src/app.py delete 1)",
-      "Bash(python src/app.py complete 1)"
+      "Bash(python src/app.py complete 1)",
+      "Bash(python src/app.py --help)",
+      "Bash(python -m pytest tests/unit/ -v)",
+      "Bash(python src/app.py add \"Test todo for final verification\")"
     ]
   }
 }

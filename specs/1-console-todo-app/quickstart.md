@@ -51,3 +51,12 @@ python src/app.py delete 1
 - Success operations return confirmation messages
 - Error operations return descriptive error messages
 - List command shows all todos with their status and ID
+
+## Architecture
+This application follows a layered architecture:
+- **Models**: Data structures (Todo entity)
+- **Services**: Business logic (TodoService)
+- **CLI**: Command line interface (commands and menu)
+- **Utils**: Helper functions and validators
+
+All data is stored in-memory only and will be lost when the application exits.

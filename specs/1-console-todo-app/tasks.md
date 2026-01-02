@@ -172,8 +172,8 @@ description: "Task list for Console Todo Application implementation"
 - [X] Add docstrings to all modules, classes, and functions (already present)
 - [X] T043 [P] Create requirements.txt and pyproject.toml
 - [X] T044 [P] Add documentation to README.md
-- [ ] T045 Run full integration tests across all user stories
-- [ ] T046 Run quickstart.md validation
+- [X] T045 Run full integration tests across all user stories
+- [X] T046 Run quickstart.md validation
 
 ---
 
