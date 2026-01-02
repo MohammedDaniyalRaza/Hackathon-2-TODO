@@ -1,2 +1,2 @@
-# Console Todo Application
+# Session-Based Console Todo Application
 # No external dependencies required - using only built-in Python libraries

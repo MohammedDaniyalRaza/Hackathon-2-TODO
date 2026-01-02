@@ -1,14 +1,17 @@
-# Console Todo Application
+# Session-Based Console Todo Application
 
-A simple, in-memory command-line todo application built with Python.
+A simple, interactive command-line todo application built with Python that runs in a continuous session until the user chooses to exit.
 
 ## Features
 
+- Interactive menu system with continuous loop
 - Add new todo items
 - View all todo items
 - Update existing todo items
 - Delete todo items
 - Mark todo items as complete
+- Mark todo items as incomplete
+- Exit option
 
 ## Requirements
 
@@ -21,30 +24,19 @@ No installation required. Simply run the application with Python.
 ## Usage
 
 ```bash
-# Add a new todo
-python src/app.py add "Buy groceries"
-
-# List all todos
-python src/app.py list
-
-# Update a todo
-python src/app.py update 1 "Buy groceries and cook dinner"
-
-# Delete a todo
-python src/app.py delete 1
-
-# Mark a todo as complete
-python src/app.py complete 1
+python main.py
 ```
+
+The application will start an interactive session with a menu. Follow the prompts to manage your todos. The session continues until you choose the Exit option.
 
 ## Architecture
 
 This application follows a layered architecture:
 
-- **Models**: Data structures (Todo entity)
-- **Services**: Business logic (TodoService)
-- **CLI**: Command line interface (commands and menu)
-- **Utils**: Helper functions and validators
+- **Models**: Data structures (Todo entity in `src/models/todo.py`)
+- **Services**: Business logic (TodoService in `src/services/todo_service.py`)
+- **CLI**: Interactive menu system (TodoMenu in `src/cli/menu.py`)
+- **Utils**: Helper functions and validators (`src/utils/`)
 
 All data is stored in-memory only and will be lost when the application exits.
 
@@ -55,34 +47,18 @@ src/
 ├── models/
 │   └── todo.py          # Todo entity (id, title, status, timestamps)
 ├── services/
-│   └── todo_service.py  # Business logic (CRUD, mark complete)
+│   └── todo_service.py  # Business logic (CRUD, mark complete/incomplete)
 ├── cli/
-│   ├── commands.py      # CLI command handlers
-│   └── menu.py          # User input & routing
-├── utils/
-│   ├── validators.py    # Input validation
-│   └── helpers.py       # Shared utilities
-└── app.py               # Application entry point
+│   └── menu.py          # Interactive menu system
+└── utils/
+    └── validators.py    # Input validation
 
-tests/
-├── unit/
-│   ├── test_todo.py     # Todo model tests
-│   └── test_todo_service.py  # Service logic tests
-└── integration/
-    └── test_cli.py      # CLI integration tests
-```
-
-## Running Tests
-
-To run the unit tests:
-
-```bash
-pip install pytest
-pytest tests/unit/
+main.py                  # Application entry point
 ```
 
 ## Design Principles
 
+- **Session-Based**: Continuous interactive loop until user chooses Exit
 - **In-Memory Only**: All data is stored in memory and resets on application restart
 - **Clean Architecture**: Clear separation between data models, business logic, and user interface
 - **Type Safety**: Full type hinting throughout the codebase
